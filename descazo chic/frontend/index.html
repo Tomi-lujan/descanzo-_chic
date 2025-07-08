@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda de Pijamas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-50 font-sans">
+  <!-- Navbar -->
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-pink-600">Pijamas Dulces Sueños</h1>
+    <div class="space-x-4">
+      <button onclick="openLoginModal()" class="text-pink-600 font-semibold">Iniciar sesión</button>
+      <button onclick="showCart()" class="bg-pink-600 text-white px-4 py-2 rounded">Carrito 🛒</button>
+    </div>
+  </header>
+
+  <!-- Productos -->
+  <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Producto ejemplo -->
+    <div class="bg-white shadow rounded p-4">
+      <img src="https://via.placeholder.com/300x200" alt="Pijama" class="rounded mb-2">
+      <h2 class="text-lg font-semibold">Pijama de Algodón</h2>
+      <p class="text-gray-500">Cómodo y suave</p>
+      <button onclick="addToCart('Pijama de Algodón')" class="bg-pink-500 text-white px-4 py-2 mt-2 rounded">Agregar al carrito</button>
+    </div>
+
+    <div class="bg-white shadow rounded p-4">
+      <img src="https://via.placeholder.com/300x200" alt="Bata" class="rounded mb-2">
+      <h2 class="text-lg font-semibold">Bata de Polar</h2>
+      <p class="text-gray-500">Perfecta para el invierno</p>
+      <button onclick="addToCart('Bata de Polar')" class="bg-pink-500 text-white px-4 py-2 mt-2 rounded">Agregar al carrito</button>
+    </div>
+
+    <div class="bg-white shadow rounded p-4">
+      <img src="https://via.placeholder.com/300x200" alt="Pantuflas" class="rounded mb-2">
+      <h2 class="text-lg font-semibold">Pantuflas Antideslizantes</h2>
+      <p class="text-gray-500">Calidez y seguridad</p>
+      <button onclick="addToCart('Pantuflas Antideslizantes')" class="bg-pink-500 text-white px-4 py-2 mt-2 rounded">Agregar al carrito</button>
+    </div>
+  </main>
+
+  <!-- Modal de carrito -->
+  <div id="cartModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded w-full max-w-md">
+      <h2 class="text-xl font-bold mb-4">Carrito</h2>
+      <ul id="cartItems" class="mb-4"></ul>
+      <h3 class="font-semibold mb-2">Método de pago:</h3>
+      <select id="paymentMethod" class="border p-2 w-full mb-4">
+        <option value="transferencia">Transferencia bancaria</option>
+        <option value="uala">Ualá</option>
+        <option value="mercadopago">Mercado Pago</option>
+      </select>
+      <button onclick="checkout()" class="bg-green-500 text-white px-4 py-2 rounded">Pagar</button>
+      <button onclick="closeCart()" class="ml-2 text-red-500">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal de login -->
+  <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded w-full max-w-sm">
+      <h2 class="text-xl font-bold mb-4">Iniciar sesión</h2>
+      <input type="text" id="username" placeholder="Usuario" class="border p-2 mb-4 w-full"/>
+      <input type="password" id="password" placeholder="Contraseña" class="border p-2 mb-4 w-full"/>
+      <button onclick="login()" class="bg-pink-600 text-white px-4 py-2 rounded">Ingresar</button>
+      <button onclick="closeLoginModal()" class="ml-2 text-red-500">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
